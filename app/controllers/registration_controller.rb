@@ -7,7 +7,7 @@ class RegistrationController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
-      puts 'entrou'
+      session[:user_id] = @user.id
       redirect_to root_path, notice: 'Successfully created account'
     else
       render :new, status: :bad_request
