@@ -9,9 +9,9 @@ class SessionController < ApplicationController
 
       redirect_to root_path, notice: 'Logged in successfully'
     else
-      flash[:alert] = 'Invalid email or password'
+      flash.now[:alert] = 'Invalid email or password'
 
-      render :new, status: :unauthorized
+      render :new, status: :unprocessable_entity
     end
   end
 
