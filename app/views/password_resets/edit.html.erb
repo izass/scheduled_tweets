@@ -1,14 +1,17 @@
 <h1>Reset your Password</h1>
 <%= form_with model: @user, url: password_resets_edit_path(token: params[:token]) do |form| %>
-  <%= render partial: "shared/form_error_messages", locals: { errors: form.object.errors } %>
+  <%= render "shared/form_error_messages", form: form %>
+
   <div class="mb-3">
     <%= form.label :password %>
     <%= form.password_field :password, class: "form-control", placeholder: "password" %>
   </div>
+
   <div class="mb-3">
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
   </div>
+
   <div class="mb-3">
     <%= form.submit "Reset your passwrod", class: "btn btn-primary" %>
   </div>
